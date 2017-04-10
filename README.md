@@ -1,5 +1,7 @@
 # README
 
+The Heroku can be found here: https://intense-river-22117.herokuapp.com/
+
 The application was built by making an API request to TMDB for movies with release dates that were within the last 14 days in Greece.
 
 As it loops through the "Now Playing" movies, it checks the TMDB movie ID to see whether or not that movie is already logged in the database.
