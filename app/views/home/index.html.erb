@@ -1,0 +1,31 @@
+<div class="jumbotron">
+<h1>Movies Now Playing in Greece From The Movie DB</h1>
+</div>
+<div class="container">
+  <table class="table table-hover table-condensed table-striped table-bordered">
+    <thead>
+      <tr padding="30px">
+        <th width="200px">Title</th>
+        <th>Description</th>
+        <th width="150px">Original Title</th>
+        <th width="150px">Director(s)</th>
+      </tr>
+    </thead>
+    <tbody margin="20px">
+    <% if @dbmovies.first %>
+    <% @dbmovies.each do |db_movie| %>
+      <tr>
+        <td><%= db_movie.title %></td>
+        <% if db_movie.description != "" %>
+        <td><%= db_movie.description %></td>
+        <% else %>
+        <td>No Description Provided</td>
+        <% end %>
+        <td><%= db_movie.original_title %></td>
+        <td><% format_directors(db_movie.director).each do |director| %> <%= link_to(director[0], 'http://www.imdb.com/name/' + director[1].to_s) %> <%end%></td>
+      </tr>
+    <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
